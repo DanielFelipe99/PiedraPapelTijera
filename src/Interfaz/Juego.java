@@ -5,6 +5,11 @@
 package Interfaz;
 
 import java.awt.Dimension;
+import java.util.Random;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+
+
 
 
 /**
@@ -18,13 +23,21 @@ public class Juego extends javax.swing.JFrame {
      * Creates new form Juego
      */
     
-  
+    String seleccion;
+    String [] elementos = {"Piedra", "Papel", "Tijera"};
+    JList<String> lista = new  JList<>(elementos);
+    int puntos1;
+    int puntos2;
+    int contador1;
+    int contador2;
+    
     public Juego() {
         initComponents();
-        this.setSize(new Dimension(600,500));
-        this.setMinimumSize(new Dimension(500,500));
+        this.setSize(new Dimension(700,600));
+        this.setMinimumSize(new Dimension(500,510));
         this.setTitle("Juego");
         this.setLocationRelativeTo(null);
+        
         
     }
 
@@ -37,13 +50,31 @@ public class Juego extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         lblPantalla = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         btnVolver = new javax.swing.JButton();
+        lblNombrePuntos = new javax.swing.JLabel();
+        lblPuntos = new javax.swing.JLabel();
+        lblNombrePuntosJugador2 = new javax.swing.JLabel();
+        lblPuntosJugador2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        listVariables = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        lvlIntroduccion = new javax.swing.JLabel();
+        btnJugarTurno = new javax.swing.JButton();
+        lblSeleccion = new javax.swing.JLabel();
+        lblSeleccionJugador2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(600, 500));
 
-        lblPantalla.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
-        lblPantalla.setText("Hola ");
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblPantalla.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jPanel1.add(lblPantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 70));
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -51,28 +82,69 @@ public class Juego extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
+        jPanel2.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 350, 100, 38));
+
+        lblNombrePuntos.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jPanel2.add(lblNombrePuntos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 150, 20));
+        jPanel2.add(lblPuntos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 106, 80, 20));
+
+        lblNombrePuntosJugador2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblNombrePuntosJugador2.setText("Puntos Jugador 2");
+        jPanel2.add(lblNombrePuntosJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 140, 20));
+        jPanel2.add(lblPuntosJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 80, 20));
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        listVariables.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        listVariables.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Piedra", "Papel", "Tijera" }));
+        listVariables.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listVariablesActionPerformed(evt);
+            }
+        });
+        jPanel3.add(listVariables, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 190, 40));
+
+        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel1.setText("Elige una opcion: ");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 190, 20));
+
+        lvlIntroduccion.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
+        lvlIntroduccion.setText("Tendras 3 oportunidades para ganar ");
+        jPanel3.add(lvlIntroduccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 430, -1));
+
+        btnJugarTurno.setText("Jugar");
+        btnJugarTurno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJugarTurnoActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnJugarTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 100, 30));
+
+        lblSeleccion.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jPanel3.add(lblSeleccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 150, 30));
+
+        lblSeleccionJugador2.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jPanel3.add(lblSeleccionJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 260, 210, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(155, 155, 155)
-                .addComponent(lblPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(156, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnVolver)
-                .addGap(256, 256, 256))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(lblPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(183, 183, 183)
-                .addComponent(btnVolver)
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
@@ -81,13 +153,144 @@ public class Juego extends javax.swing.JFrame {
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
         new VentanaPrincipal().setVisible(true);
-        dispose(); 
+        dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
-   
-  
+
+    private void listVariablesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listVariablesActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_listVariablesActionPerformed
+
+    private void btnJugarTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarTurnoActionPerformed
+        // TODO add your handling code here:
+        
+        seleccion = listVariables.getSelectedItem().toString();
+        Random random = new Random();
+        int indice = random.nextInt(elementos.length);
+        String seleccion2 = lista.getModel().getElementAt(indice);
+        lblSeleccionJugador2.setText("El jugador 2 eligió: " + seleccion2); 
+        System.out.println(seleccion2);
+        lblSeleccion.setText("Tu elegiste: " + seleccion);
+        
+        
+        if(seleccion == "Tijera" && seleccion2 == "Tijera"){
+            puntos1 = 0;
+            puntos2 = 0;
+            contador1 = contador1 + puntos1;
+            contador2 = contador2 + puntos2;
+            System.out.println("nadie gana: ");
+            System.out.println("Jugador 1: " + contador1);
+            System.out.println("Jugador 2: " + contador2);
+        }
+         if(seleccion == "Papel" && seleccion2 == "Papel"){
+            puntos1 = 0;
+            puntos2 = 0;
+            contador1 = contador1 + puntos1;
+            contador2 = contador2 + puntos2;
+            System.out.println("nadie gana: ");
+            System.out.println("Jugador 1: " + contador1);
+            System.out.println("Jugador 2: " + contador2);
+        }
+        if(seleccion == "Piedra" && seleccion2 == "Piedra"){
+            puntos1 = 0;
+            puntos2 = 0;
+            contador1 = contador1 + puntos1;
+            contador2 = contador2 + puntos2;
+            System.out.println("nadie gana: ");
+            System.out.println("Jugador 1: " + contador1);
+            System.out.println("Jugador 2: " + contador2);
+        }
+        //--------------------------------------------------
+        if(seleccion == "Tijera" && seleccion2 == "Piedra"){
+            puntos1 = 0;
+            puntos2 = 1;
+            contador1 = contador1 + puntos1;
+            contador2 = contador2 + puntos2;
+          
+            System.out.println("Jugador 1: " + contador1);
+            System.out.println("Jugador 2: " + contador2);
+        }
+        if(seleccion == "Tijera" && seleccion2 == "Papel"){
+            puntos1 = 1;
+            puntos2 = 0;
+            contador1 = contador1 + puntos1;
+            contador2 = contador2 + puntos2;
+            
+            System.out.println("Jugador 1: " + contador1);
+            System.out.println("Jugador 2: " + contador2);
+        }
+        if(seleccion == "Piedra" && seleccion2 == "Tijera"){
+            puntos1 = 1;
+            puntos2 = 0;
+            contador1 = contador1 + puntos1;
+            contador2 = contador2 + puntos2;
+           
+            System.out.println("Jugador 1: " + contador1);
+            System.out.println("Jugador 2: " + contador2);
+        }
+        if(seleccion == "Piedra" && seleccion2 == "Papel"){
+            puntos1 = 0;
+            puntos2 = 1;
+            contador1 = contador1 + puntos1;
+            contador2 = contador2 + puntos2;
+        
+            System.out.println("Jugador 1: " + contador1);
+            System.out.println("Jugador 2: " + contador2);
+        }
+        if(seleccion == "Papel" && seleccion2 == "Tijera"){
+            puntos1 = 0;
+            puntos2 = 1;
+            contador1 = contador1 + puntos1;
+            contador2 = contador2 + puntos2;
+           
+            System.out.println("Jugador 1: " + contador1);
+            System.out.println("Jugador 2: " + contador2);
+        }
+        if(seleccion == "Papel" && seleccion2 == "Piedra"){
+            puntos1 = 1;
+            puntos2 = 0;
+            contador1 = contador1 + puntos1;
+            contador2 = contador2 + puntos2;
+            
+            System.out.println("Jugador 1: " + contador1);
+            System.out.println("Jugador 2: " + contador2);
+        }
+        if(contador1 == 3){
+            JOptionPane.showMessageDialog(null, "¡El jugador 1 " + ventana.nombre + " ha ganado!");
+            dispose();
+            new VentanaPrincipal().setVisible(true);
+      
+        }else{
+            if(contador2 == 3){
+            JOptionPane.showMessageDialog(null, "¡El jugador 2 ha ganado"  );
+            dispose();
+            new VentanaPrincipal().setVisible(true);
+            }
+        }
+       
+        
+        lblPuntos.setText(contador1 + "");
+        lblPuntosJugador2.setText(contador2 + "");
+        
+        
+    }//GEN-LAST:event_btnJugarTurnoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnJugarTurno;
     private javax.swing.JButton btnVolver;
+    private javax.swing.JLabel jLabel1;
+    public javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    public static javax.swing.JLabel lblNombrePuntos;
+    private javax.swing.JLabel lblNombrePuntosJugador2;
     public static javax.swing.JLabel lblPantalla;
+    private javax.swing.JLabel lblPuntos;
+    private javax.swing.JLabel lblPuntosJugador2;
+    private javax.swing.JLabel lblSeleccion;
+    private javax.swing.JLabel lblSeleccionJugador2;
+    private javax.swing.JComboBox<String> listVariables;
+    private javax.swing.JLabel lvlIntroduccion;
     // End of variables declaration//GEN-END:variables
 }

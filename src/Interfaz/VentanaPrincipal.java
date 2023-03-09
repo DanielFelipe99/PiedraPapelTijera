@@ -18,7 +18,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      */
     public VentanaPrincipal() {
         initComponents();
-        this.setSize(new Dimension(600,500));
+        this.setSize(new Dimension(600,650));
         this.setMinimumSize(new Dimension(500,500));
         this.setTitle("¡Diviertete! :)");
         this.setLocationRelativeTo(null);
@@ -33,58 +33,72 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         txtPantalla = new javax.swing.JTextField();
         btnJugar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
-        jLabel2.setText("Piedra Papel o Tijera");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(130, 50, 300, 47);
+        jPanel1.setBackground(new java.awt.Color(255, 193, 101));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        txtPantalla.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPantallaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtPantalla);
-        txtPantalla.setBounds(160, 220, 260, 40);
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnJugar.setText("Jugar");
+        lblTitulo.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        lblTitulo.setText("Piedra Papel o Tijera");
+        jPanel2.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 220, 30));
+
+        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel1.setText("Ingresa tu nombre:");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 130, -1));
+        jPanel2.add(txtPantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 320, 30));
+
+        btnJugar.setBackground(new java.awt.Color(204, 102, 0));
+        btnJugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/boton-de-inicio (1).png"))); // NOI18N
         btnJugar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnJugarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnJugar);
-        btnJugar.setBounds(250, 350, 76, 27);
+        jPanel2.add(btnJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 110, 50));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jLabel1.setText("Ingresa tu nombre: ");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(160, 180, 120, 30);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 30;
+        gridBagConstraints.ipady = 63;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanel1.add(jPanel2, gridBagConstraints);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
         // TODO add your handling code here:
-        
-        new Juego().setVisible(true);
         nombre = txtPantalla.getText();
-        Juego.lblPantalla.setText("Hola " + nombre);
+        new Juego().setVisible(true);
+        Juego.lblPantalla.setText("¡Hola " + nombre + " es hora de jugar! :D");
+        Juego.lblNombrePuntos.setText("Puntos " + nombre);
+        dispose();
     }//GEN-LAST:event_btnJugarActionPerformed
-
-    private void txtPantallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPantallaActionPerformed
-        // TODO add your handling code here:
-       //String nombre = txtPantalla.getText();
-       //txtPantalla.setText(nombre);
-    }//GEN-LAST:event_txtPantallaActionPerformed
    
   
     
@@ -127,7 +141,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnJugar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    public javax.swing.JTextField txtPantalla;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JTextField txtPantalla;
     // End of variables declaration//GEN-END:variables
 }
