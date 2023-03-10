@@ -55,9 +55,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         lblTitulo.setText("Piedra Papel o Tijera");
         jPanel2.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 220, 30));
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel1.setText("Ingresa tu nombre:");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 130, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 320, -1));
         jPanel2.add(txtPantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 320, 30));
 
         btnJugar.setBackground(new java.awt.Color(204, 102, 0));
