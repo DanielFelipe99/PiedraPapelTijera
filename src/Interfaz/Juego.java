@@ -271,7 +271,7 @@ public class Juego extends javax.swing.JFrame {
             System.out.println("Jugador 2: " + contador2);
         }
         if(contador1 == 3){
-            JOptionPane.showMessageDialog(null, "¡El jugador 1 " + ventana.nombre + " ha ganado!");
+            JOptionPane.showMessageDialog(null, "¡El jugador " + ventana.nombre + " ha ganado!");
             dispose();
             new VentanaPrincipal().setVisible(true);
       

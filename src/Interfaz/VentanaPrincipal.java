@@ -12,7 +12,7 @@ import java.awt.Dimension;
  * @author danie
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-    public String nombre;
+    public static String nombre;
     /**
      * Creates new form VentanaPrincipal
      */
