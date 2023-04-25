@@ -4,7 +4,19 @@
  */
 package Interfaz;
 
+import Controlador.ControladorLogin;
+import DAO.DAOLogin;
+import Seguridad.Cifrado;
 import java.awt.Dimension;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -13,9 +25,19 @@ import java.awt.Dimension;
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
     public static String nombre;
+    Cifrado encriptar = new Cifrado();
+    private static VentanaPrincipal login;
+    private DAOLogin cLogin = ControladorLogin.getControladorLogin();
     /**
      * Creates new form VentanaPrincipal
      */
+       public static VentanaPrincipal getLogin(){
+        if(login==null)
+            login=new VentanaPrincipal();
+        
+        return login;
+    }
+       
     public VentanaPrincipal() {
         initComponents();
         this.setSize(new Dimension(600,650));
@@ -56,7 +78,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel2.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 220, 30));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel1.setText("Ingresa tu nombre:");
+        jLabel1.setText("Ingresa tu nombre registrado:");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 320, -1));
         jPanel2.add(txtPantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 320, 30));
 
@@ -94,10 +116,32 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
         // TODO add your handling code here:
         nombre = txtPantalla.getText();
+         if(cLogin.VerificarUsuarios(nombre)){
+            JOptionPane.showMessageDialog(this, "Usuario correcto, presiona ok para continuar...", "¡Genial!", JOptionPane.OK_OPTION);
+        
+        try {
+            String encriptado = encriptar.encriptar(nombre);
+            System.out.println("Nombre de usuario encriptado: " + encriptado);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchPaddingException ex) {
+            Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvalidKeyException ex) {
+            Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (BadPaddingException ex) {
+            Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
         new Juego().setVisible(true);
         Juego.lblPantalla.setText("¡Hola " + nombre + " es hora de jugar! :D");
         Juego.lblNombrePuntos.setText("Puntos " + nombre);
         dispose();
+         }else{
+            JOptionPane.showMessageDialog(this, "Usuario incorrecto", "Información", JOptionPane.ERROR_MESSAGE);
+         }
     }//GEN-LAST:event_btnJugarActionPerformed
    
   

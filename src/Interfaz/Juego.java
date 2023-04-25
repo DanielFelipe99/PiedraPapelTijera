@@ -71,14 +71,14 @@ public class Juego extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 500));
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 153));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblPantalla.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         lblPantalla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/mastin-ingles (1).png"))); // NOI18N
         jPanel1.add(lblPantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 90));
 
-        jPanel2.setBackground(new java.awt.Color(204, 255, 153));
+        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnVolver.setBackground(new java.awt.Color(0, 0, 0));
@@ -99,7 +99,7 @@ public class Juego extends javax.swing.JFrame {
         jPanel2.add(lblNombrePuntosJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 140, 20));
         jPanel2.add(lblPuntosJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 80, 20));
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(61, 82, 89));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         listVariables.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -111,11 +111,15 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel3.add(listVariables, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 220, 50));
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Elige una opcion: ");
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 190, 20));
 
+        lvlIntroduccion.setBackground(new java.awt.Color(255, 255, 255));
         lvlIntroduccion.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
+        lvlIntroduccion.setForeground(new java.awt.Color(255, 255, 255));
         lvlIntroduccion.setText("Tendras 3 oportunidades para ganar ");
         jPanel3.add(lvlIntroduccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 430, -1));
 
@@ -137,7 +141,9 @@ public class Juego extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/boxer (1).png"))); // NOI18N
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 100, 120));
 
+        lblTituloJugador2.setBackground(new java.awt.Color(255, 255, 255));
         lblTituloJugador2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblTituloJugador2.setForeground(new java.awt.Color(255, 255, 255));
         lblTituloJugador2.setText("Jugador 2");
         jPanel3.add(lblTituloJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 120, 20));
 
